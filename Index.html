@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio de Martina Cornejo - Junior front-end Developer y estudiante de programación informática"
+    <title>Mi Portafolio Personal</title>
+</head>
+
+<body>
+    <!-- Barra de navegación -->
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#habilidades-tecnicas">Habilidades técnicas</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sección de inicio/hero -->
+    <section id="inicio">
+        <h1>Martina Cornejo</h1>
+        <p>Estudiante / Junior Developer</p>
+    </section>
+
+    <!-- Sección sobre mí -->
+    <section id="sobre-mi">
+        <h2>Sobre Mí</h2>
+        <div>
+            <!-- Aquí puedes agregar tu foto -->
+            <img src="./assets/foto.JPG" alt="Tu foto" height="200">
+        </div>
+        <div>
+            <p>
+            Estudiante de Programación Informática y
+            Junior Front-end Developer en formación.<br>
+            Apasionada por crear proyectos web simples
+            y bien estructurados. Autodidacta en HTML y<br>
+            CSS. Busco mi primera experiencia laboral en
+            desarrollo web para aprender y crecer en
+            equipo.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección de habilidades -->
+    <section id="habilidades">
+        <h2>Habilidades Técnicas</h2>
+        <div>
+            <h3>Lenguajes de Programación</h3>
+            <ul>
+                <li>Html</li>
+                <li>CSS</li>
+                <li>Python</li>
+                <li>C</li>
+                <li>Git & Github</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Frameworks y Librerías</h3>
+            <ul>
+                <!-- Lista frameworks que manejes -->
+            </ul>
+        </div>
+        <div>
+            <h3>Herramientas y Tecnologías</h3>
+            <ul>
+                <!-- Lista otras herramientas -->
+            </ul>
+        </div>
+    </section>
+
+    <!-- Sección de proyectos -->
+    <section id="proyectos">
+        <h2>Proyectos Destacados</h2>
+        <div class="proyecto">
+            <h3>Solo Trainer</h3>
+            <p>Aplicación web enfocada al entrenamiento individual de basketball</p>
+            <p>Tecnologías utilizadas</p>
+            <!-- Enlaces si aplica -->
+        </div>
+        <div class="proyecto">
+            <h3>Recetas en tu heladera</h3>
+            <p>Descripción breve del proyecto</p>
+            <p>Tecnologías utilizadas</p>
+            <!-- Enlaces si aplica -->
+        </div>
+        <div class="proyecto">
+            <h3>Duolingo LSA</h3>
+            <p>Descripción breve del proyecto</p>
+            <p>Tecnologías utilizadas</p>
+            <!-- Enlaces si aplica -->
+        </div>
+    </section>
+
+    <!-- Sección de contacto -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>¿Interesado en trabajar juntos? ¡No dudes en contactarme!</p>
+        <div>
+            <p>Email: <a href="mailto:martinacornejo5259@gmail.com">martinacornejo5259@gmail.com</a></p>
+            <p>Ubicación: Buenos Aires, Argentina</p>
+        </div>
+        <div>
+            <!-- Enlaces a tus redes sociales -->
+            <a href="https://www.linkedin.com/in/martinaccwilich" target="_blank" rel="noopener noreferrer"><img src="./assets/linkedin.png" alt="LinkedIn" height="30"></a>
+            <a href="https://github.com/martu37" target="_blank" rel="noopener noreferrer"><img src="./assets/github.png" alt="Github" height="30"></a>
+            <a href="https://x.com/marti_cornejo" target="_blank" rel="noopener noreferrer"><img src="./assets/twitter.png" alt="Twitter" height="30"></a>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; <span id="year"></span> Martina Cornejo Cwilich. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Script simple para mostrar el año actual
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>

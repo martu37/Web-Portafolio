@@ -1,0 +1,88 @@
+/* --- RESET Y ESTILOS BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #151515;
+    background-color: #f9f9f9;
+}
+/*
+   - El reset elimina márgenes y padding por defecto para tener control total
+   - box-sizing: border-box hace que el padding no afecte el ancho total de los elementos
+   - scroll-behavior: smooth crea un desplazamiento suave al hacer clic en los enlaces del menú
+   - Elegí una fuente sans-serif limpia y legible para un portafolio moderno
+*/
+
+/* --- BARRA DE NAVEGACIÓN --- */
+nav {
+    background-color: #a2a5a8;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0.3rem;
+}
+
+nav li {
+    margin: 0.2rem;
+}
+
+nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: 400;
+    padding: 10px;
+    position: relative;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #3498db;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3498db;
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Explicación:
+   - La barra de navegación es sticky para que siempre est visible al hacer scroll
+   - Usé flexbox para centrar los elementos del menú
+   - El efecto hover con subrayado animado da un feedback visual interactivo
+   - Los colores oscuros contrastan bien con el fondo claro del sitio
+*/
+
+/* ---  Sobre mí  ---*/
+.contenedor-foto {
+    display: flex;
+    justify-content: center;
+}
+
+#foto-perfil{
+    border-radius:10%
+}

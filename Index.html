@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portafolio de Martina Cornejo - Junior front-end Developer y estudiante de programación informática"
     <title>Mi Portafolio Personal</title>
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -28,9 +30,9 @@
     <!-- Sección sobre mí -->
     <section id="sobre-mi">
         <h2>Sobre Mí</h2>
-        <div>
+        <div class="contenedor-foto">
             <!-- Aquí puedes agregar tu foto -->
-            <img src="./assets/foto.JPG" alt="Tu foto" height="200">
+            <img id="foto-perfil" src="./assets/foto.JPG" alt="Tu foto" height="200">
         </div>
         <div>
             <p>
@@ -95,14 +97,28 @@
             <p>¿Qué cocinas cuando no tienes todos los ingredientes de una receta? <br>
                 Esta aplicación sugiere platos creativos basándose en los ingredientes que tienes disponibles, 
                 eliminando el desperdicio de alimentos y facilitando la cocina diaria.</p>
-            <p>Tecnologías utilizadas</p>
+            <details>
+                <summary>Conocer más</summary>
+                <div class="detalles-proyecto">
+                <p><strong>Problema que resuelve:</strong> Ayuda a los usuarios a aprovechar los ingredientes que tienen en casa, reduciendo el desperdicio y la indecisión al cocinar.</p>
+                <p><strong>Tecnologías clave:</strong> Frontend con HTML, CSS, JavaScript (con React o Vue.js). Backend con Python (para la IA).</p>
+                <p><strong>Qué demuestra:</strong> Capacidad para integrar tecnologías de frontend y backend, así como conocimientos básicos de inteligencia artificial y manejo de bases de datos.</p>
+                </div>
+            </details>
             <!-- Enlaces si aplica -->
         </div>
         <div class="proyecto">
             <h3>Duolingo LSA</h3>
             <p> La falta de herramientas interactivas y accesibles para aprender el Lenguaje de Señas Argentino (LSA).<br> 
                 Este proyecto crea una plataforma de aprendizaje similar a Duolingo, pero enfocada en LSA.</p>
-            <p>Tecnologías utilizadas</p>
+            <details>
+                <summary>Conocer más</summary>
+                <div class="detalles-proyecto">
+                <p><strong>Problema que resuelve:</strong> Proporciona una plataforma de aprendizaje interactiva para el Lenguaje de Señas Argentino, contribuyendo a la inclusión y accesibilidad.</p>
+                <p><strong>Tecnologías clave:</strong> Frontend con HTML, CSS, JavaScript (con React). Backend con Python (visión por computadora).</p>
+                <p><strong>Qué demuestra:</strong> Habilidades avanzadas en el desarrollo de aplicaciones web, integración de tecnologías de IA, y un enfoque en proyectos con impacto social.</p>
+                </div>
+            </details>
             <!-- Enlaces si aplica -->
         </div>
     </section>

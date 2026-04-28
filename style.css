@@ -1,13 +1,11 @@
 :root {
-    --folder-base: #e9bc64; /* Mostaza suave y cálido */
-    --folder-grad: linear-gradient(180deg, #e9bc64 0%, #d4a753 100%);
-    --paper-white: #ffffff;
-    --text-dark: #3d4652;
-    --desk-bg: linear-gradient(180deg, #4b6584 0%, #2d3e50 100%); /* Azul pizarra / aire profundo */
-    
-    /* Gradientes para pestañas */
-    --tab-grad-active: linear-gradient(to bottom, #e9bc64, #d4a753);
-    --tab-grad-hover: linear-gradient(to bottom, #f1d292, #e9bc64);
+    --folder-base: #e9bc64; 
+    --folder-dark: #d4a753;
+    --paper-color: #fdfaf0; /* Crema suave */
+    --text-dark: #2c3e50;
+    --nav-bg: #34495e; /* Barra oscura */
+    --desk-bg: radial-gradient(circle, #4b6584 0%, #2d3e50 100%);
+    --accent: #e67e22;
 }
 
 body {
@@ -18,9 +16,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100%;
     overflow: hidden;
-    color: var(--text-dark);
 }
 
 .desk {
@@ -29,137 +25,159 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box;
-    padding: 20px;
-    position: relative;
-    background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 20px 20px;
+    background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
 }
 
 .folder-container {
-    width: 90%;
-    max-width: 1100px;
+    width: 95%;
+    max-width: 1000px;
     height: 80vh;
     max-height: 700px;
     position: relative;
+    margin-top: 50px;
+    filter: drop-shadow(0 20px 50px rgba(0,0,0,0.3));
+}
+
+/* Base de la Carpeta */
+.folder {
+    background: var(--folder-base);
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 15px 15px; /* Cuadrado arriba, curvo abajo */
+    position: relative;
     display: flex;
     flex-direction: column;
-    margin: 0; 
+    z-index: 2;
 }
 
+/* PALETAS LATERALES DE LA CARPETA (Mostaza - Dinámicas) */
+.folder::before, .folder::after {
+    content: '';
+    position: absolute;
+    top: -30px;
+    height: 30px;
+    background: var(--folder-base);
+    border-radius: 15px 15px 0 0;
+    z-index: 1;
+    /* Calculamos el ancho para que llegue justo a la barra central (que mide fit-content) */
+    /* Como la barra central está centrada, el espacio lateral es (100% - ancho_barra) / 2 */
+    width: calc(50% - 150px); /* 150px es un aproximado del semi-ancho de la barra */
+    min-width: 50px;
+}
+
+.folder::before { left: 0; }
+.folder::after { right: 0; }
+
+/* BARRA DE NAVEGACIÓN CENTRAL (Nav Oscura) */
 .tabs {
     position: absolute;
-    top: -30px; /* Ajustado para que asomen por detrás */
-    left: 0; /* Pestañas al ras del borde izquierdo de la carpeta */
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--nav-bg);
     display: flex;
-    gap: 5px;
-    z-index: 1; /* Detrás de la carpeta */
+    padding: 0 10px;
+    height: 45px;
+    border-radius: 15px 15px 0 0;
+    z-index: 10;
+    width: fit-content;
+    min-width: 300px; /* Aseguramos un ancho base para el cálculo de las paletas */
 }
 
+/* ELIMINAR CURVAS COMPLEJAS QUE ROMPEN LAS ESQUINAS */
+.tabs::before, .tabs::after, .folder-container::before, .folder-container::after {
+    display: none !important;
+}
+
+/* PESTAÑAS INDIVIDUALES */
 .tab {
-    background: #c29a4a; /* Mostaza oscuro/mate para inactivas */
+    background: transparent;
     border: none;
-    padding: 10px 25px;
-    border-radius: 12px 12px 0 0;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.8rem;
-    color: #4b3505;
-    opacity: 0.8;
-    transition: all 0.3s ease;
+    color: rgba(255,255,255,0.5);
+    padding: 0 20px;
     font-family: 'JetBrains Mono', monospace;
-    box-shadow: inset 0 -5px 10px rgba(0,0,0,0.1);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    border-radius: 10px 10px 0 0;
 }
 
-.tab:hover {
-    background: #d4a753;
-    opacity: 1;
+.tab:hover { 
+    color: white; 
+    background: rgba(255,255,255,0.05); 
 }
 
 .tab.active {
-    background: var(--folder-base);
-    background-image: var(--tab-grad-active);
-    color: #4b3505;
-    transform: translateY(-8px);
-    z-index: 3; /* Por delante de la carpeta */
-    padding-bottom: 15px;
-    opacity: 1;
-    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
-}
-
-.folder {
-    background: var(--folder-grad);
-    border-radius: 0 20px 20px 20px;
-    padding: 30px 15px 15px 15px;
-    position: relative;
-    box-shadow: 
-        0 40px 80px rgba(0,0,0,0.3),
-        inset 1px 1px 2px rgba(255,255,255,0.3);
-    width: 100%;
+    color: var(--folder-base);
+    background: var(--nav-bg); /* Se funde con la barra */
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    z-index: 2; /* Carpeta por delante de las pestañas inactivas */
+    margin-top: 0;
+    font-weight: bold;
+    box-shadow: 0 -5px 10px rgba(0,0,0,0.2);
 }
 
-/* Eliminamos los colores específicos anteriores */
-.tab.active[data-target="about"],
-.tab.active[data-target="projects"],
-.tab.active[data-target="contact"] { 
-    background: var(--tab-grad-active);
-    color: var(--text-dark);
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    width: 70%;
+    height: 3px;
+    background: var(--folder-base);
+    border-radius: 3px 3px 0 0;
 }
 
+/* CONTENIDO Y PAPEL */
 .folder-content {
-    background-color: var(--paper-white);
     flex-grow: 1;
-    padding: clamp(20px, 5%, 50px);
-    border-radius: 10px;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.02);
-    overflow-y: auto;
-    border: 1px solid rgba(0,0,0,0.03);
-}
-
-.action-btn {
-    background: var(--text-dark);
-    border: none;
-    color: white;
-    padding: 12px 30px;
+    position: relative;
+    margin: 15px;
+    background: var(--folder-base);
     border-radius: 8px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    overflow: hidden;
 }
 
-.action-btn:hover {
-    background: #2f3542;
-    transform: translateY(-2px);
+.paper-sheet {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--paper-color);
+    padding: clamp(20px, 5%, 40px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(100%);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow-y: auto;
+    border-radius: 5px;
 }
 
-.page {
-    display: none;
-}
+.folder.is-open .paper-sheet { transform: translateY(0); }
 
-.page.active {
-    display: block;
-    animation: slideIn 0.4s ease-out;
-}
+.page { display: none; max-width: 800px; margin: 0 auto; }
+.page.active { display: block; animation: fadeIn 0.4s ease; }
 
-.paper {
-    line-height: 1.6;
-    border-left: 2px solid #ffcccc;
-    padding-left: 20px;
-}
-
-h1 {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+h1.typewriter {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
     color: #7f8c8d;
-    border-bottom: 1px dashed #bdc3c7;
+    margin-bottom: 25px;
+    border-bottom: 1px dashed #dcdde1;
     padding-bottom: 10px;
 }
 
+.paper-line {
+    border-left: 2px solid #edafaf;
+    padding-left: 25px;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+/* PROYECTOS */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -170,13 +188,10 @@ h1 {
 .project-card {
     border: 1px solid #dcdde1;
     padding: 20px;
-    border-radius: 2px;
     background: #fff;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
     cursor: pointer;
     transition: all 0.2s ease;
-    position: relative;
-    border-top: 4px solid var(--folder-shadow);
 }
 
 .project-card:hover {
@@ -195,43 +210,89 @@ h1 {
     justify-content: center;
 }
 
-.project-img-placeholder::after {
-    content: '[IMAGEN_PROYECTO]';
-    color: #bdc3c7;
-    font-size: 0.7rem;
-}
-
-.project-card h3 {
-    margin: 0 0 10px 0;
-    font-size: 1.1rem;
-    color: var(--text-dark);
-}
-
-.project-card p {
-    font-size: 0.85rem;
-    color: #7f8c8d;
-    line-height: 1.4;
-    margin-bottom: 15px;
-}
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tag {
     background: #f1f2f6;
     color: #57606f;
     padding: 3px 10px;
-    border-radius: 2px;
     font-size: 0.7rem;
     border: 1px solid #dcdde1;
 }
 
-/* Vista de detalle */
-.detail-paper {
-    animation: fadeIn 0.3s ease;
+/* Portada de la Carpeta */
+.folder-cover {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 60px; /* Espacio para el botón inferior */
+    transition: opacity 0.5s ease;
+}
+
+.cover-text {
+    border: 3px solid rgba(0,0,0,0.1);
+    padding: clamp(20px, 5%, 40px);
+    border-radius: 4px;
+}
+
+.cover-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    margin: 0;
+    color: rgba(0,0,0,0.6);
+    letter-spacing: 5px;
+}
+
+.cover-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    margin: 10px 0 0 0;
+    color: rgba(0,0,0,0.4);
+    letter-spacing: 10px;
+}
+
+.open-btn {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.05);
+    border: 2px solid rgba(0,0,0,0.1);
+    color: rgba(0,0,0,0.5);
+    padding: 12px 35px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.open-btn:hover {
+    background: rgba(0,0,0,0.1);
+    color: rgba(0,0,0,0.8);
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Ocultar portada cuando la carpeta está abierta */
+.folder.is-open .folder-cover {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* BOTONES DE ACCIÓN */
+.action-btn {
+    display: inline-block;
+    background: var(--text-dark);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
 }
 
 .back-btn {
@@ -239,87 +300,29 @@ h1 {
     border: 1px solid #dcdde1;
     padding: 8px 15px;
     cursor: pointer;
-    font-family: inherit;
     margin-bottom: 20px;
     color: #7f8c8d;
-    transition: all 0.2s;
 }
 
-.back-btn:hover {
-    background: #f1f2f6;
-    color: var(--text-dark);
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* IDIOMA */
+.lang-switch-container {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 100;
 }
 
-.description {
-    margin: 25px 0;
-    font-size: 1rem;
-    color: #2f3640;
-    white-space: pre-line;
-}
-
-.action-btn {
-    display: inline-block;
-    background: var(--text-dark);
-    color: white;
-    padding: 12px 25px;
-    text-decoration: none;
-    border-radius: 2px;
-    font-weight: bold;
-    transition: background 0.2s;
-}
-
-.action-btn:hover {
-    background: #1e272e;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideIn {
-    from { transform: translateX(20px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-/* Scrollbar personalizada para que parezca de sistema antiguo */
-.folder-content::-webkit-scrollbar {
-    width: 8px;
-}
-.folder-content::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-.folder-content::-webkit-scrollbar-thumb {
-    background: #ccc;
-}
-.folder-content::-webkit-scrollbar-thumb:hover {
-    background: #bbb;
-}
-
-/* Media Queries para Responsividad */
-@media (max-width: 768px) {
-    .tabs {
-        top: -30px;
-    }
-    .tab {
-        padding: 8px 12px;
-        font-size: 0.8rem;
-    }
-    .folder {
-        padding-top: 30px;
-        box-shadow: 8px 8px 0 var(--folder-shadow);
-    }
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    .tab {
-        padding: 6px 8px;
-        font-size: 0.7rem;
-    }
-    .folder-content {
-        padding: 20px;
-    }
-}
+.lang-label { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; font-weight: bold; color: var(--folder-base); }
+.switch { position: relative; width: 40px; height: 20px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--text-dark); transition: .4s; border: 1px solid var(--folder-base); }
+.slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 2px; bottom: 2px; background-color: var(--folder-base); transition: .4s; }
+input:checked + .slider { background-color: var(--folder-base); }
+input:checked + .slider:before { transform: translateX(20px); background-color: var(--text-dark); }
+.slider.round { border-radius: 20px; }
+.slider.round:before { border-radius: 50%; }

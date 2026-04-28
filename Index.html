@@ -3,155 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio de Martina Cornejo - Junior front-end Developer y estudiante de programación informática">
-    <title>Portafolio Web de Martina Cornejo</title>
-
+    <title>Mi Portafolio - Carpeta de Proyectos</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div id="contenedor-portafolio">
-    <!-- Barra de navegación -->
-    <nav>
-        <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sobre-mi">Sobre Mí</a></li>
-            <li><a href="#habilidades-tecnicas">Habilidades técnicas</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <!-- Sección de inicio/hero -->
-    <section id="inicio">
-        <h1>Martina Cornejo</h1>
-        <p>Estudiante / Junior Developer</p>
-    </section>
-
-    <!-- Sección sobre mí -->
-    <section id="sobre-mi">
-        <h2>Sobre Mí</h2>
-        <div class="contenedor-foto">
-            <!-- Aquí puedes agregar tu foto -->
-            <img id="foto-perfil" src="./assets/foto.JPG" alt="Tu foto" height="200">
-        </div>
-        <div>
-            <p>
-            Estudiante de Programación Informática y
-            Junior Front-end Developer en formación.<br>
-            Apasionada por crear proyectos web simples
-            y bien estructurados. Autodidacta en HTML y<br>
-            CSS. Busco mi primera experiencia laboral en
-            desarrollo web para aprender y crecer en
-            equipo.
-            </p>
-        </div>
-    </section>
-
-    <!-- Sección de habilidades -->
-    <section id="habilidades">
-        <h2>Habilidades Técnicas</h2>
-        <div>
-            <h3>Lenguajes de Programación</h3>
-            <ul>
-                <li><img src="./assets/html.png" alt="html logo" height="30">Html</li>
-                <li><img src="./assets/css.png" alt="css logo" height="30"> CSS</li>
-                <li><img src="./assets/python.png" alt="python logo" height="30"> Python</li>
-                <li><img src="./assets/c.png" alt="c logo" height="30"> C</li>
-                <li><img src="./assets/git.png" alt="git logo" height="30">Git & Github<img src="./assets/github.png" alt="Github" height="30"></li>
-            </ul>
-        </div>
-        <div>
-            <h3>Frameworks y Librerías</h3>
-            <ul>
-                <!-- Lista frameworks que manejes -->
-            </ul>
-        </div>
-        <div>
-            <h3>Herramientas y Tecnologías</h3>
-            <ul>
-                <!-- Lista otras herramientas -->
-            </ul>
-        </div>
-    </section>
-
-    <!-- Sección de proyectos -->
-    <section id="proyectos">
-        <h2>Proyectos</h2>
-        <div class="proyecto">
-                <h3>Solo Trainer</h3>
-                <p>Para los jugadores de baloncesto que entrenan solos, es difícil crear rutinas variadas y<br> 
-                eficientes. La aplicación SoloTrainer ofrece entrenamientos personalizados y aleatorios, <br>
-                adaptados al tiempo y lugar del usuario.</p>
-            <details>
-                <summary>Conocer más</summary>
-                <div class="detalles-proyecto">
-                <p><strong>Problema que resuelve:</strong> Facilita la creación de rutinas de entrenamiento de baloncesto, personalizándolas según el tiempo y el lugar, ideal para jugadores que entrenan en solitario.</p>
-                <p><strong>Tecnologías clave:</strong> Frontend con HTML, CSS, JavaScript (con React).</p>
-                <p><strong>Qué demuestra:</strong> Habilidad en el desarrollo de aplicaciones web interactivas y manejo de lógica de programación para generar contenido dinámico.</p>
+    <div class="desk">
+        <div class="folder">
+            <div class="tabs">
+                <button class="tab active" data-target="about">SOBRE_MI.txt</button>
+                <button class="tab" data-target="projects">PROYECTOS.log</button>
+                <button class="tab" data-target="contact">CONTACTO.sh</button>
+            </div>
+            <div class="folder-content">
+                <div id="about" class="page active">
+                    <h1 class="typewriter">C:\USUARIO\ESTUDIANTE> WHOAMI</h1>
+                    <div class="paper">
+                        <h2>Hola, soy [Tu Nombre]</h2>
+                        <p>Soy estudiante de programación en la universidad. Me apasiona resolver problemas y construir herramientas útiles.</p>
+                        <p>Esta carpeta contiene los documentos de mis proyectos personales y académicos.</p>
+                        <hr>
+                        <h3>Habilidades:</h3>
+                        <ul>
+                            <li>JavaScript / TypeScript</li>
+                            <li>HTML5 / CSS3</li>
+                            <li>Python / Java (o tus lenguajes)</li>
+                        </ul>
+                    </div>
                 </div>
-            </details>
-            <!-- Enlaces si aplica -->
-        </div>
-        <div class="proyecto">
-            <h3>Recetas en tu heladera</h3>
-            <p>¿Qué cocinas cuando no tienes todos los ingredientes de una receta? <br>
-                Esta aplicación sugiere platos creativos basándose en los ingredientes que tienes disponibles, 
-                eliminando el desperdicio de alimentos y facilitando la cocina diaria.</p>
-            <details>
-                <summary>Conocer más</summary>
-                <div class="detalles-proyecto">
-                <p><strong>Problema que resuelve:</strong> Ayuda a los usuarios a aprovechar los ingredientes que tienen en casa, reduciendo el desperdicio y la indecisión al cocinar.</p>
-                <p><strong>Tecnologías clave:</strong> Frontend con HTML, CSS, JavaScript (con React o Vue.js). Backend con Python (para la IA).</p>
-                <p><strong>Qué demuestra:</strong> Capacidad para integrar tecnologías de frontend y backend, así como conocimientos básicos de inteligencia artificial y manejo de bases de datos.</p>
+
+                <div id="projects" class="page">
+                    <h1>C:\USUARIO\ESTUDIANTE> LS ./PROYECTOS</h1>
+                    <div class="project-grid">
+                        <!-- Los proyectos se insertarán aquí -->
+                        <div class="project-card">
+                            <h3>Proyecto 1</h3>
+                            <p>Descripción breve de lo que hace.</p>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
                 </div>
-            </details>
-            <!-- Enlaces si aplica -->
-        </div>
-        <div class="proyecto">
-            <h3>Duolingo LSA</h3>
-            <p> La falta de herramientas interactivas y accesibles para aprender el Lenguaje de Señas Argentino (LSA).<br> 
-                Este proyecto crea una plataforma de aprendizaje similar a Duolingo, pero enfocada en LSA.</p>
-            <details>
-                <summary>Conocer más</summary>
-                <div class="detalles-proyecto">
-                <p><strong>Problema que resuelve:</strong> Proporciona una plataforma de aprendizaje interactiva para el Lenguaje de Señas Argentino, contribuyendo a la inclusión y accesibilidad.</p>
-                <p><strong>Tecnologías clave:</strong> Frontend con HTML, CSS, JavaScript (con React). Backend con Python (visión por computadora).</p>
-                <p><strong>Qué demuestra:</strong> Habilidades avanzadas en el desarrollo de aplicaciones web, integración de tecnologías de IA, y un enfoque en proyectos con impacto social.</p>
+
+                <div id="contact" class="page">
+                    <h1>C:\USUARIO\ESTUDIANTE> CONNECT --INFO</h1>
+                    <div class="paper">
+                        <p>Si quieres contactarme para colaborar o conocer más sobre mi trabajo, puedes encontrarme en:</p>
+                        <ul>
+                            <li>Email: tu@email.com</li>
+                            <li>LinkedIn: /in/tuusuario</li>
+                            <li>GitHub: @tuusuario</li>
+                        </ul>
+                    </div>
                 </div>
-            </details>
-            <!-- Enlaces si aplica -->
+            </div>
         </div>
-    </section>
-
-    <!-- Sección de contacto -->
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>¿Interesado en trabajar juntos? ¡No dudes en contactarme!</p>
-        <div>
-            <p>Email: <a href="mailto:martinacornejo5259@gmail.com">martinacornejo5259@gmail.com</a></p>
-            <p>Ubicación: Buenos Aires, Argentina</p>
-        </div>
-        <div>
-            <!-- Enlaces a tus redes sociales -->
-            <a href="https://www.linkedin.com/in/martinaccwilich" target="_blank" rel="noopener noreferrer"><img src="./assets/linkedin.png" alt="LinkedIn" height="30"></a>
-            <a href="https://github.com/martu37" target="_blank" rel="noopener noreferrer"><img src="./assets/github.png" alt="Github" height="30"></a>
-            <a href="https://x.com/marti_cornejo" target="_blank" rel="noopener noreferrer"><img src="./assets/twitter.png" alt="Twitter" height="30"></a>
-        </div>
-    </section>
-
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; <span id="year"></span> Martina Cornejo Cwilich. Todos los derechos reservados.</p>
-    </footer>
-
-    <script>
-        // Script simple para mostrar el año actual
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-
     </div>
-
+    <script src="script.js"></script>
 </body>
-
 </html>

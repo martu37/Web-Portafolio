@@ -8,55 +8,59 @@
 </head>
 <body>
     <div class="desk">
-        <div class="folder">
+        <div class="folder-container">
             <div class="tabs">
                 <button class="tab active" data-target="about">SOBRE_MI.txt</button>
                 <button class="tab" data-target="projects">PROYECTOS.log</button>
                 <button class="tab" data-target="contact">CONTACTO.sh</button>
             </div>
-            <div class="folder-content">
-                <div id="about" class="page active">
-                    <h1 class="typewriter">C:\USUARIO\ESTUDIANTE> WHOAMI</h1>
-                    <div class="paper">
-                        <h2>Hola, soy [Tu Nombre]</h2>
-                        <p>Soy estudiante de programación en la universidad. Me apasiona resolver problemas y construir herramientas útiles.</p>
-                        <p>Esta carpeta contiene los documentos de mis proyectos personales y académicos.</p>
-                        <hr>
-                        <h3>Habilidades:</h3>
-                        <ul>
-                            <li>JavaScript / TypeScript</li>
-                            <li>HTML5 / CSS3</li>
-                            <li>Python / Java (o tus lenguajes)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div id="projects" class="page">
-                    <h1>C:\USUARIO\ESTUDIANTE> LS ./PROYECTOS</h1>
-                    <div class="project-grid">
-                        <!-- Los proyectos se insertarán aquí -->
-                        <div class="project-card">
-                            <h3>Proyecto 1</h3>
-                            <p>Descripción breve de lo que hace.</p>
-                            <span class="tag">JavaScript</span>
+            <div class="folder">
+                <div class="folder-content">
+                    <div id="about" class="page active">
+                        <h1 class="typewriter">C:\USUARIO\ESTUDIANTE> WHOAMI</h1>
+                        <div class="paper">
+                            <h2>Hola, soy [Tu Nombre]</h2>
+                            <p>Soy estudiante de programación en la universidad. Me apasiona resolver problemas y construir herramientas útiles.</p>
+                            <p>Esta carpeta contiene los documentos de mis proyectos personales y académicos.</p>
+                            <hr>
+                            <h3>Habilidades:</h3>
+                            <ul>
+                                <li>JavaScript / TypeScript</li>
+                                <li>HTML5 / CSS3</li>
+                                <li>Python / Java (o tus lenguajes)</li>
+                            </ul>
                         </div>
                     </div>
-                </div>
 
-                <div id="contact" class="page">
-                    <h1>C:\USUARIO\ESTUDIANTE> CONNECT --INFO</h1>
-                    <div class="paper">
-                        <p>Si quieres contactarme para colaborar o conocer más sobre mi trabajo, puedes encontrarme en:</p>
-                        <ul>
-                            <li>Email: tu@email.com</li>
-                            <li>LinkedIn: /in/tuusuario</li>
-                            <li>GitHub: @tuusuario</li>
-                        </ul>
+                    <div id="projects" class="page">
+                        <h1 class="typewriter">C:\USUARIO\ESTUDIANTE> LS ./PROYECTOS</h1>
+                        <div id="projects-gallery">
+                            <div class="project-grid">
+                                <!-- Inyectado por JS -->
+                            </div>
+                        </div>
+                        <div id="project-detail" style="display: none;">
+                            <div id="detail-content">
+                                <!-- Inyectado por JS -->
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+                    <div id="contact" class="page">
+                        <h1>C:\USUARIO\ESTUDIANTE> CONNECT --INFO</h1>
+                        <div class="paper">
+                            <p>Si quieres contactarme para colaborar o conocer más sobre mi trabajo, puedes encontrarme en:</p>
+                            <ul>
+                                <li>Email: tu@email.com</li>
+                                <li>LinkedIn: /in/tuusuario</li>
+                                <li>GitHub: @tuusuario</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> <!-- folder-content -->
+            </div> <!-- folder -->
+        </div> <!-- folder-container -->
+    </div> <!-- desk -->
     <script src="script.js"></script>
 </body>
 </html>
